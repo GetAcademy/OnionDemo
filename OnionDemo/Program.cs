@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using OnionDemo.ApplicationServices;
 using OnionDemo.DomainModel;
+using OnionDemo.Infrastructure;
 
 namespace OnionDemo
 {
@@ -8,7 +10,12 @@ namespace OnionDemo
     {
         static void Main(string[] args)
         {
-            var board = new Board(10);
+            var fileBoardRepository = new FileBoardRepository();
+            var gameService = new GameService(fileBoardRepository);
+
+            var board = gameService.Load();
+            Console.WriteLine(board.ToString());
+
             while (true)
             {
                 Console.Clear();
@@ -20,17 +27,12 @@ namespace OnionDemo
                     var parts = command.Split(' ');
                     var rowIndex = Convert.ToInt32(parts[1]);
                     var colIndex = Convert.ToInt32(parts[2]);
-                    board.Play(rowIndex, colIndex, true);
+                    var play = new Play(rowIndex, colIndex, true);
+                    board = gameService.Play(play);
                 }
-                else if (command.StartsWith("save"))
+                else if (command.StartsWith("new"))
                 {
-                    var contents = board.ToString();
-                    File.WriteAllText("game.txt", contents);
-                }
-                else if (command.StartsWith("load"))
-                {
-                    var contents = File.ReadAllText("game.txt");
-                    board = new Board(contents);
+                    board = gameService.New();
                 }
 
                 Console.WriteLine(board.ToString());

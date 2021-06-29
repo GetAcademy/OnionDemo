@@ -12,7 +12,7 @@ namespace OnionDemo.ApplicationServices
             _boardRepository = boardRepository;
         }
 
-        public void Play(Play play)
+        public Board Play(Play play)
         {
             // loade objekter
             var board = _boardRepository.Load();
@@ -20,6 +20,25 @@ namespace OnionDemo.ApplicationServices
             board.Play(play.RowIndex, play.ColIndex, play.IsCross);
             // lagre objekter
             _boardRepository.Save(board);
+            return board;
+        }
+
+        public Board New()
+        {
+            var board = new Board(10);
+            // lagre objekter
+            _boardRepository.Save(board);
+            return board;
+        }
+
+        public void Save(Board board)
+        {
+            _boardRepository.Save(board);
+        }
+
+        public Board Load()
+        {
+            return _boardRepository.Load();
         }
     }
 }
