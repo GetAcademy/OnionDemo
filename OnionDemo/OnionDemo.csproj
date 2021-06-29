@@ -9,6 +9,7 @@
     <ProjectReference Include="..\OnionDemo.ApplicationServices\OnionDemo.ApplicationServices.csproj" />
     <ProjectReference Include="..\OnionDemo.DomainModel\OnionDemo.DomainModel.csproj" />
     <ProjectReference Include="..\OnionDemo.DomainServices\OnionDemo.DomainServices.csproj" />
+    <ProjectReference Include="..\OnionDemo.Infrastructure\OnionDemo.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
