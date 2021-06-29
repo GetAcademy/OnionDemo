@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnionDemo.Model
+﻿namespace OnionDemo.DomainModel
 {
-    class Square
+    public class Square
     {
         public char? Content { get; private set; }
         public char DisplayChar => Content ?? ' ';

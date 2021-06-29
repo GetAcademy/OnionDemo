@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OnionDemo.Model
+namespace OnionDemo.DomainModel
 {
-    class Board
+    public class Board
     {
         private readonly List<Row> _rows;
 

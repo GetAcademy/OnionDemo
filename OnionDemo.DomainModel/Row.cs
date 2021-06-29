@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OnionDemo.Model
+namespace OnionDemo.DomainModel
 {
-    class Row
+    public class Row
     {
-        private List<Square> _squares;
+        private readonly List<Square> _squares;
 
         public Row(int squareCount)
         {
